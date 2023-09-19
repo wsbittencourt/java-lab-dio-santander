@@ -6,13 +6,19 @@ Below is a small class diagram used as a basis for the project.
 
 ```mermaid
 classDiagram
+  class CharacterClass {
+    - class_name: String
+    - base_physical_damage: Integer
+    - base_magical_damage: Integer
+    - base_physical_defense: Integer
+    - base_magical_defense: Integer
+    + CharacterClass(class_name: String, base_physical_damage: Integer, base_magical_damage: Integer, base_physical_defense: Integer, base_magical_defense: Integer)
+  }
+
   class Player {
     - name: String
-    - hp: Integer
-    - damage: Integer
-    - defense: Integer
-    - luck: Float
-    + Player(name: String, hp: Integer, damage: Integer, defense: Integer, luck: Float)
+    - class_id: Integer
+    + Player(name: String, class_id: Integer)
   }
 
   class Match {
@@ -24,4 +30,6 @@ classDiagram
 
   Player --|> Match : participates in
   Match --|> Player : has winner
+  Player --|> CharacterClass : belongs to
+  CharacterClass --|> Player : has players
 ```
