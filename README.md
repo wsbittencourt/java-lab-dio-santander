@@ -8,6 +8,7 @@ Below is a small class diagram used as a basis for the project.
 classDiagram
   class CharacterClass {
     - class_name: String
+    - health: Integer
     - base_physical_damage: Integer
     - base_magical_damage: Integer
     - base_physical_defense: Integer
@@ -28,8 +29,7 @@ classDiagram
     + Match(players: List<Player>, status: String, winner: Player)
   }
 
-  Player --|> Match : participates in
-  Match --|> Player : has winner
-  Player --|> CharacterClass : belongs to
-  CharacterClass --|> Player : has players
+  Player "*" --* "*" Match : participates in
+  Match "*" o-- "1" Player : has winner
+  Player "1" --> "1" CharacterClass : belongs to
 ```
