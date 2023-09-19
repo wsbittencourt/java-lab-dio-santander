@@ -25,8 +25,8 @@ classDiagram
   class Match {
     - players: List<Player>
     - status: String
-    - winner: Player
-    + Match(players: List<Player>, status: String, winner: Player)
+    - winner: Player = null
+    + Match(players: List<Player>, status: String)
   }
 
   Player "*" --* "*" Match : participates in
