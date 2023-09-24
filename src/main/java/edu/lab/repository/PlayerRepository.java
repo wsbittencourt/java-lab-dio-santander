@@ -5,4 +5,6 @@ import edu.lab.model.Player;
 
 public interface PlayerRepository extends JpaRepository<Player, Long>{
 
+	boolean existsByName(String name);
+
 }
